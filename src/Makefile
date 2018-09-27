@@ -2,7 +2,6 @@
 #
 # Initialise various variables
 #
-
 CLEANUP		:=
 CFLAGS		:=
 ASFLAGS		:=
@@ -210,13 +209,13 @@ install :
 VERSION_MAJOR	= 1
 VERSION_MINOR	= 0
 VERSION_PATCH	= 0
-EXTRAVERSION	= +
+EXTRAVERSION	= -hackboot
 MM_VERSION	= $(VERSION_MAJOR).$(VERSION_MINOR)
 VERSION		= $(MM_VERSION).$(VERSION_PATCH)$(EXTRAVERSION)
-ifneq ($(wildcard ../.git),)
-GITVERSION := $(shell git describe --always --abbrev=1 --match "" 2>/dev/null)
-VERSION		+= ($(GITVERSION))
-endif
+#ifneq ($(wildcard ../.git),)
+#GITVERSION := $(shell git describe --always --abbrev=1 --match "" 2>/dev/null)
+#VERSION		+= ($(GITVERSION))
+#endif
 version :
 	@$(ECHO) "$(VERSION)"
 
